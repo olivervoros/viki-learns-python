@@ -43,11 +43,20 @@ print(gyumolcsok)
 #             a "paprika" szót, majd írd ki a listát!
 # Ide írd a megoldást:
 
+zoldsegek = ["repa", "uborka", "paradicsom"]
+zoldsegek.append("paprika")
+print(zoldsegek)
+
 
 # 2. feladat: Az előző listában az .insert() metódussal
 #             szúrd be a "hagyma" szót a lista LEGELEJÉRE
 #             (0-ás index)! Írd ki az eredményt!
 # Ide írd a megoldást:
+zoldsegek = ["repa", "uborka", "paradicsom"]
+zoldsegek.append("paprika")
+zoldsegek.insert(0,"hagyma")
+print(zoldsegek)
+
 
 
 # 3. feladat: Hozz létre egy másik listát 2 új zöldséggel,
@@ -55,6 +64,9 @@ print(gyumolcsok)
 #             elemét a 'zoldsegek' listához! Írd ki az eredményt!
 # Ide írd a megoldást:
 
+uj_zoldsegek= ["spenot", "cekla"]
+zoldsegek.extend(uj_zoldsegek)
+print(zoldsegek)
 
 # ===========================================================
 # 2. ELEMEK ELTÁVOLÍTÁSA A LISTÁBÓL
@@ -98,18 +110,22 @@ print(szamok)  # []
 #             Az .remove() metódussal töröld ki a 3. nevet
 #             (az ÉRTÉKE alapján, ne indexszel)! Írd ki a listát!
 # Ide írd a megoldást:
-
+osztaly = ["Viki", "Anna", "Dorka", "Bogi", "Alma"]
+osztaly.remove("Dorka")
+print(osztaly)
 
 # 5. feladat: Az előző listából a .pop() metódussal vedd ki
 #             az utolsó elemet, tárold el egy 'kiesett' nevű
 #             változóba, és írd ki: "Kiesett: [kiesett]"
 # Ide írd a megoldást:
-
+kiesett = osztaly.pop(3)
+print(f"Kiesett:{kiesett}")
 
 # 6. feladat: A del kulcsszóval töröld ki a lista első elemét
 #             (0-ás index), majd írd ki a maradék listát!
 # Ide írd a megoldást:
-
+del osztaly[0]
+print(osztaly)
 
 # ===========================================================
 # 3. RENDEZÉS ÉS SORREND
@@ -152,6 +168,9 @@ print(uj_lista)  # [1, 2, 4, 5]
 #             sorrendben. Rendezd CSÖKKENŐ sorrendbe a
 #             .sort(reverse=True) segítségével! Írd ki!
 # Ide írd a megoldást:
+szamok = [2, 44, 77, 56, 4]
+uj_lista = sorted(eredeti)
+print(szamok)
 
 
 # 8. feladat: Hozz létre egy nevekből álló listát, és
@@ -159,13 +178,19 @@ print(uj_lista)  # [1, 2, 4, 5]
 #             Írd ki előtte és utána is a listát – figyeld meg
 #             a különbséget a rendezéshez képest!
 # Ide írd a megoldást:
-
+nevek = ["Alma", "Mira", "Viki", "Bogi"]
+nevek.reverse()
+print(nevek)
 
 # 9. feladat: Hozz létre egy 'eredeti' nevű listát számokkal.
 #             A sorted() függvénnyel hozz létre egy ÚJ,
 #             rendezett listát 'rendezett' néven, úgy hogy
 #             az 'eredeti' lista NE változzon! Írd ki mindkettőt!
 # Ide írd a megoldást:
+eredeti = [3, 5, 2, 33]
+uj_lista = sorted(eredeti)
+print(eredeti)
+print(uj_lista)
 
 
 # ===========================================================
@@ -198,11 +223,16 @@ print(kosarba.count("alma"))  # 2  (kétszer szerepel)
 #              ellenőrizd, benne van-e a 'kosarba' listában!
 #              Írd ki: "Benne van: True" vagy "Benne van: False"
 # Ide írd a megoldást:
+#gyumolcs = int(input("Mondjon egy gyümölcsöt :"))
+#print("gyumolcs" in kosarba)
+
+
 
 
 # 11. feladat: Írd ki, hányszor szerepel az "alma" szó
 #              a 'kosarba' listában a .count() metódussal!
 # Ide írd a megoldást:
+print(kosarba.count("alma"))
 
 
 # ===========================================================
@@ -243,12 +273,21 @@ print(lista4)  # ["alma", "banán", "körte"]
 #              (lista2 = lista1), módosítsd lista2-t, majd
 #              írd ki mindkettőt – figyeld meg, mi történik!
 # Ide írd a megoldást:
-
+lista1 = [1, 2, 3]
+lista2 = lista1
+lista2.append(4)
+print(lista1)
+print(lista2)
 
 # 13. feladat: Most javítsd ki az előző feladatot a .copy()
 #              metódussal, hogy a módosítás már csak a
 #              másolatot érintse! Írd ki mindkét listát!
 # Ide írd a megoldást:
+lista1 = [1, 2, 3]
+lista2 = lista1.copy()
+lista2.append(4)
+print(lista1)
+print(lista2)
 
 
 # ===========================================================
