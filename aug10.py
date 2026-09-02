@@ -76,8 +76,10 @@ print(eredmeny2)
 # Például: koszontes("Anna") -> "Szia, Anna!"
 
 
-def koszontes(nev):
-    pass  # TODO: írd meg a függvény törzsét
+def koszontes(nev = "Olivér"):
+    print(f"Szia,{nev}")
+
+koszontes()
 
 
 # Feladat 1.2 ⭐⭐
@@ -86,7 +88,10 @@ def koszontes(nev):
 
 
 def negyzetszam(szam=2):
-    pass  # TODO: írd meg a függvény törzsét
+    print(f"A szám négyzete:{szam**2}")
+
+negyzetszam(16)
+
 
 
 # Feladat 1.3 ⭐⭐⭐
@@ -98,7 +103,8 @@ def negyzetszam(szam=2):
 
 
 def hozzaad_elem(elem, lista=None):
-    pass  # TODO: írd meg a függvény törzsét
+    # TODO: hazi
+    pass 
 
 
 # ==========================================================
@@ -222,6 +228,14 @@ except ValueError:
 # üzenetet, pl. "A fájl nem található!"
 
 # TODO: írd meg a try/except blokkot
+try:
+    with open("nincsilyen.txt", "r", encoding="utf-8") as f:
+        tartalom = f.read()
+        print(tartalom)
+except FileNotFoundError:
+    print("A fájl nem található")
+
+    
 
 
 # Feladat 3.3 ⭐⭐⭐

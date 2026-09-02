@@ -112,10 +112,10 @@ print(f"Jövőre {kor + 1} lesz.")  # Jövőre 21 lesz.
 #
 # Próbáld ki (most kikommentezve, hogy a fájl megállás nélkül fusson):
 
-# felhasznalo_nev = input("Hogy hívnak? ")
-# felhasznalo_kor = int(input("Hány éves vagy? "))
-# print(f"Szia {felhasznalo_nev}! 10 év múlva {felhasznalo_kor + 10} leszel.")
-
+#felhasznalo_nev = input("Hogy hívnak? ")
+#felhasznalo_kor = int(input("Hány éves vagy? "))
+#print(f"Szia {felhasznalo_nev}! 10 év múlva {felhasznalo_kor + 10} leszel.")
+#idáig 08.03.
 
 # 7) ELÁGAZÁS (if) - AZ ÚTELÁGAZÁS
 # --------------------------------
@@ -128,6 +128,8 @@ if homerseklet > 25:
     print("Meleg van, vegyél rövidnadrágot!")
 elif homerseklet > 15:
     print("Kellemes idő van.")
+elif homerseklet > 0:
+    print("Hideg van de még nem fagy")
 else:
     print("Hideg van, vegyél kabátot!")
 
@@ -168,8 +170,12 @@ print()  # egy üres sor a végére
 # Írd ki őket egy f-string segítségével ebben a formában:
 # "Bodri 4 éves és 12.5 kg."
 
+
 # TODO: ide írd a megoldást
-pass
+kutyam_neve = "Leila"
+kutyam_kora = 8
+kutyam_sulya = 12.5
+print(f"{kutyam_neve} {kutyam_kora} éves és {kutyam_sulya} kg.")
 
 
 # --- 2. FELADAT ⭐ -------------------------------------------
@@ -178,7 +184,10 @@ pass
 # és az osztási maradékukat.
 
 # TODO: ide írd a megoldást
-pass
+szam1 = 17
+szam2 = 5
+print(f"A két szám összege:{szam1+szam2} A két szám különbsége:{szam1-szam2}")
+print(f"A két szám szorzata:{szam1*szam2} és osztási maradékuk:{szam1%szam2}")
 
 
 # --- 3. FELADAT ⭐⭐ ------------------------------------------
@@ -187,7 +196,9 @@ pass
 # Írd ki: "7 db alma ára: 1750 Ft"
 
 # TODO: ide írd a megoldást
-pass
+alma_ara = 250
+alma_darab = 7
+print(f"7 db alma ára:{alma_ara*alma_darab} ft")
 
 
 # --- 4. FELADAT ⭐⭐ ------------------------------------------
@@ -201,7 +212,14 @@ pass
 pontszam = 72
 
 # TODO: ide írd a megoldást
-pass
+if pontszam > 85:
+    print("Jeles")
+elif pontszam >= 70:
+    print("Jó")
+elif pontszam >=50:
+    print("Közepes")
+else: 
+    print("Elégtelen")
 
 
 # --- 5. FELADAT ⭐⭐ ------------------------------------------
@@ -210,7 +228,9 @@ pass
 # "3 kétszerese: 6"
 
 # TODO: ide írd a megoldást
-pass
+szamok = range(1,11)
+for szam in szamok:
+    print(f"{szam} kétszerese:{szam*2}")
 
 
 # --- 6. FELADAT ⭐⭐⭐ (ÖSSZEFOGLALÓ) --------------------------
@@ -225,11 +245,20 @@ pass
 # 4. Írd ki f-stringgel: "A jegy ára: ... Ft"
 # 5. Végül egy ciklussal írd ki, mennyibe kerülne 1, 2 és 3 jegy.
 
-latogato_kor = 12
-alapar = 2000
+
 
 # TODO: ide írd a megoldást
-pass
+latogato_kor = 12
+alapar = 2000
+if latogato_kor < 14:
+    print(f"A jegy ára:{alapar*0.5}Ft")
+elif latogato_kor > 65:
+    print(f"A jegy ára:{alapar*0.7}Ft")
+else:
+    print("A jegy ára:2000Ft")
+jegy_darabszamok = range(1,4)
+for jegy_darabszam in jegy_darabszamok:
+    print(f"{jegy_darabszam} darab jegy ára :{jegy_darabszam*2000}Ft")
 
 
 # =============================================================
@@ -240,7 +269,7 @@ pass
 # str/int/float/bool -> a doboz tartalmának típusa
 # print()     -> kiírás a képernyőre
 # f"{...}"    -> szöveg és változó összefűzése
-# input()     -> beolvasás (mindig szöveget ad!)
+# input()     -> beolvasás (mindig szöveget STRINGET ad!)
 # int()       -> szövegből szám
 # if/elif/else-> döntés, útelágazás
 # for + range -> ismétlés

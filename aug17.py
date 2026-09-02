@@ -28,13 +28,10 @@ item_name = "Notebook"  # keep as string
 item_price_text = "4.99"  # convert to float
 item_quantity_text = "3"  # convert to int
 
-# TODO: convert price and quantity to the right types,
-#       then calculate total_price (price × quantity)
-# total_price = ...
-
-# print(f"{item_quantity_text}x {item_name} = {total_price} EUR")
-# Expected output: 3x Notebook = 14.97 EUR
-
+# TODO:
+item_price = float(item_price_text)
+item_quantity = int(item_quantity_text)
+print(f"Total price : {item_price*item_quantity}")
 
 # --- Exercise 1.2 ⭐⭐ — The Tricky Input ---
 # Sometimes data is messy. The price below has a currency symbol in it.
@@ -42,7 +39,10 @@ item_quantity_text = "3"  # convert to int
 
 messy_price = "€12.50"
 
-# TODO: remove the '€' sign, convert to float, and store in clean_price
+# TODO:
+messy_price[0] =""
+print(messy_price) 
+# remove the '€' sign, convert to float, and store in clean_price
 # clean_price = ...
 
 # print(f"Cleaned price: {clean_price}")

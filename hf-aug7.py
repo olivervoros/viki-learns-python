@@ -169,8 +169,8 @@ print(uj_lista)  # [1, 2, 4, 5]
 #             .sort(reverse=True) segítségével! Írd ki!
 # Ide írd a megoldást:
 szamok = [2, 44, 77, 56, 4]
-uj_lista = sorted(eredeti)
-print(szamok)
+szamok.sort(reverse=True)
+print(f"szamok 173.sor : {szamok}")
 
 
 # 8. feladat: Hozz létre egy nevekből álló listát, és
@@ -178,9 +178,10 @@ print(szamok)
 #             Írd ki előtte és utána is a listát – figyeld meg
 #             a különbséget a rendezéshez képest!
 # Ide írd a megoldást:
-nevek = ["Alma", "Mira", "Viki", "Bogi"]
-nevek.reverse()
-print(nevek)
+nevek2 = ["Alma", "Mira", "Viki", "Bogi"]
+print(nevek2)
+nevek2.reverse()
+print(f"nevek sor 184. :{nevek2}")
 
 # 9. feladat: Hozz létre egy 'eredeti' nevű listát számokkal.
 #             A sorted() függvénnyel hozz létre egy ÚJ,
@@ -188,9 +189,9 @@ print(nevek)
 #             az 'eredeti' lista NE változzon! Írd ki mindkettőt!
 # Ide írd a megoldást:
 eredeti = [3, 5, 2, 33]
-uj_lista = sorted(eredeti)
+rendezett = sorted(eredeti)
 print(eredeti)
-print(uj_lista)
+print(rendezett)
 
 
 # ===========================================================
@@ -225,6 +226,12 @@ print(kosarba.count("alma"))  # 2  (kétszer szerepel)
 # Ide írd a megoldást:
 #gyumolcs = int(input("Mondjon egy gyümölcsöt :"))
 #print("gyumolcs" in kosarba)
+valasz = input("Mondjon egy gyümölcsöt : ")
+if valasz in kosarba:
+    print("True")
+else :
+    print("False")
+
 
 
 
@@ -304,7 +311,15 @@ print(lista2)
 #                és .remove()-al vedd ki a listából.
 #              - Írd ki a végleges, rendezett (sort()) listát!
 # Ide írd a megoldást:
-
+bevasarlas = []
+for value in range(1,4):
+    termek = input("Adj meg egy terméket : ")
+    bevasarlas.append(termek)
+print(bevasarlas)
+mar_megvettem = input("Már megvettem : ")
+bevasarlas.remove(mar_megvettem)
+bevasarlas.sort()
+print(bevasarlas)
 
 # 15. feladat (Összetett): Van egy listád: [4, 12, 4, 7, 12, 4, 9]
 #              - Írd ki, hányszor szerepel a 4-es szám (.count())
