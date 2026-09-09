@@ -1,0 +1,427 @@
+# ============================================================
+# 🐍 INTERMEDIATE PYTHON PRACTICE — SOLUTIONS
+# ============================================================
+
+# ============================================================
+# SECTION 1 — VARIABLES & TYPE CONVERSION
+# ============================================================
+
+# --- Exercise 1.1 ⭐ — Jar Inventory ---
+item_name = "Notebook"
+item_price_text = "4.99"
+item_quantity_text = "3"
+
+item_price = float(item_price_text)
+item_quantity = int(item_quantity_text)
+total_price = round(item_price * item_quantity, 2)
+
+print(f"{item_quantity_text}x {item_name} = {total_price} EUR")
+# 3x Notebook = 14.97 EUR
+
+
+# --- Exercise 1.2 ⭐⭐ — The Tricky Input ---
+messy_price = "€12.50"
+clean_price = float(messy_price.replace("€", ""))
+print(f"Cleaned price: {clean_price}")
+# Cleaned price: 12.5
+
+
+# --- Exercise 1.3 ⭐⭐ — Type Detective ---
+age = 25
+height = 1.75
+is_student = True
+
+print(type(age), type(height), type(is_student))
+sentence = "Age: " + str(age) + ", Height: " + str(height) + ", Student: " + str(is_student)
+print(sentence)
+# Age: 25, Height: 1.75, Student: True
+
+
+# ============================================================
+# SECTION 2 — IF / ELIF / ELSE
+# ============================================================
+
+# --- Exercise 2.1 ⭐ — Grade Calculator ---
+score = 73
+
+if score >= 90:
+    grade = "A"
+elif score >= 80:
+    grade = "B"
+elif score >= 70:
+    grade = "C"
+elif score >= 60:
+    grade = "D"
+else:
+    grade = "F"
+print(grade)
+# C
+
+
+# --- Exercise 2.2 ⭐⭐ — Ticket Price ---
+customer_age = 30
+is_tuesday = True
+
+if customer_age < 12:
+    ticket_price = 5
+elif customer_age < 18:
+    ticket_price = 8
+elif customer_age < 65:
+    ticket_price = 12
+else:
+    ticket_price = 7
+
+if is_tuesday:
+    ticket_price -= 2
+
+print(f"Ticket price: {ticket_price} EUR")
+# Ticket price: 10 EUR
+
+
+# --- Exercise 2.3 ⭐⭐⭐ — Password Validator ---
+password = "Hello1"
+
+if len(password) < 8:
+    print(f"❌ Too short ({len(password)} chars, need at least 8)")
+if not any(ch.isdigit() for ch in password):
+    print("❌ Needs at least one digit")
+if not any(ch.isupper() for ch in password):
+    print("❌ Needs at least one uppercase letter")
+# ❌ Too short (6 chars, need at least 8)
+
+
+# ============================================================
+# SECTION 3 — FOR LOOPS
+# ============================================================
+
+# --- Exercise 3.1 ⭐ — Sum Machine ---
+total = 0
+for n in range(1, 101):
+    total += n
+print(f"Sum of 1 to 100 = {total}")
+# Sum of 1 to 100 = 5050
+
+
+# --- Exercise 3.2 ⭐⭐ — Word Counter ---
+words = ["apple", "banana", "cherry", "fig", "dragonfruit", "kiwi", "strawberry"]
+long_word_count = 0
+for w in words:
+    if len(w) > 5:
+        long_word_count += 1
+print(f"Words longer than 5 chars: {long_word_count}")
+# Words longer than 5 chars: 4
+
+
+# --- Exercise 3.3 ⭐⭐ — Multiplication Table ---
+number = 7
+for i in range(1, 11):
+    print(f"{number} x {i} = {number * i}")
+
+
+# --- Exercise 3.4 ⭐⭐⭐ — FizzBuzz ---
+for n in range(1, 31):
+    if n % 3 == 0 and n % 5 == 0:   # strictest condition first
+        print("FizzBuzz")
+    elif n % 3 == 0:
+        print("Fizz")
+    elif n % 5 == 0:
+        print("Buzz")
+    else:
+        print(n)
+
+
+# ============================================================
+# SECTION 4 — WHILE LOOPS
+# ============================================================
+
+# --- Exercise 4.1 ⭐ — Countdown ---
+count = 10
+while count >= 1:
+    print(count)
+    count -= 1
+print("Liftoff! 🚀")
+
+
+# --- Exercise 4.2 ⭐⭐ — Guess the Number (simulated) ---
+secret = 42
+guesses = [10, 25, 42, 99, 50]
+
+i = 0
+while i < len(guesses):
+    guess = guesses[i]
+    if guess < secret:
+        print(f"Guess: {guess} → Too low")
+    elif guess > secret:
+        print(f"Guess: {guess} → Too high")
+    else:
+        print(f"Guess: {guess} → Correct! 🎉")
+        break
+    i += 1
+
+
+# --- Exercise 4.3 ⭐⭐⭐ — Collatz Conjecture ---
+start_number = 27
+n = start_number
+steps = 0
+while n != 1:
+    if n % 2 == 0:
+        n = n // 2
+    else:
+        n = 3 * n + 1
+    steps += 1
+    print(f"Step {steps}: {n}")
+print(f"Reached 1 in {steps} steps")
+
+
+# ============================================================
+# SECTION 5 — LISTS & LIST OPERATIONS
+# ============================================================
+
+# --- Exercise 5.1 ⭐ — List Basics ---
+fruits = ["apple", "banana", "cherry"]
+fruits.append("dragonfruit")
+fruits.insert(0, "avocado")
+fruits.remove("banana")
+print(fruits)
+print(f"Length: {len(fruits)}")
+# ['avocado', 'apple', 'cherry', 'dragonfruit']
+# Length: 4
+
+
+# --- Exercise 5.2 ⭐⭐ — List Statistics ---
+numbers = [34, 67, 12, 89, 45, 23, 56, 78, 90, 11]
+my_min = numbers[0]
+my_max = numbers[0]
+my_sum = 0
+for num in numbers:
+    if num < my_min:
+        my_min = num
+    if num > my_max:
+        my_max = num
+    my_sum += num
+my_avg = my_sum / len(numbers)
+print(f"Min: {my_min}, Max: {my_max}, Sum: {my_sum}, Avg: {my_avg}")
+# Min: 11, Max: 90, Sum: 505, Avg: 50.5
+
+
+# --- Exercise 5.3 ⭐⭐ — List Filtering ---
+mixed = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+even_numbers = []
+odd_numbers = []
+for num in mixed:
+    if num % 2 == 0:
+        even_numbers.append(num)
+    else:
+        odd_numbers.append(num)
+print(f"Even: {even_numbers}")
+print(f"Odd: {odd_numbers}")
+
+
+# --- Exercise 5.4 ⭐⭐⭐ — Remove Duplicates (keep order) ---
+items = ["a", "b", "a", "c", "b", "d", "e", "c", "a"]
+unique_items = []
+for item in items:
+    if item not in unique_items:
+        unique_items.append(item)
+print(unique_items)
+# ['a', 'b', 'c', 'd', 'e']
+
+
+# --- Exercise 5.5 ⭐⭐⭐ — Matrix (List of Lists) ---
+matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+for r, row in enumerate(matrix, start=1):
+    print(f"Row {r} sum: {sum(row)}")
+for c in range(len(matrix[0])):
+    col_sum = 0
+    for row in matrix:
+        col_sum += row[c]
+    print(f"Col {c + 1} sum: {col_sum}")
+
+
+# ============================================================
+# SECTION 6 — FILE OPERATIONS
+# ============================================================
+
+# --- Exercise 6.1 ⭐ — Write and Read ---
+names = ["Alice", "Bob", "Charlie", "Diana", "Eve"]
+with open("names.txt", "w") as f:
+    for name in names:
+        f.write(name + "\n")
+with open("names.txt", "r") as f:
+    for line in f:
+        print(line.strip())
+
+
+# --- Exercise 6.2 ⭐⭐ — Log Analyzer ---
+log_lines = [
+    "INFO: User logged in",
+    "ERROR: Disk full",
+    "INFO: Page loaded",
+    "ERROR: Connection timeout",
+    "INFO: File saved",
+    "ERROR: Permission denied",
+    "INFO: User logged out",
+]
+with open("app.log", "w") as f:
+    for line in log_lines:
+        f.write(line + "\n")
+
+info_count = 0
+error_count = 0
+with open("app.log", "r") as f:
+    for line in f:
+        if line.startswith("INFO"):
+            info_count += 1
+        elif line.startswith("ERROR"):
+            error_count += 1
+print(f"INFO: {info_count}, ERROR: {error_count}")
+# INFO: 4, ERROR: 3
+
+
+# --- Exercise 6.3 ⭐⭐⭐ — CSV Parser ---
+csv_data = """name,math,science,english
+Alice,85,92,78
+Bob,90,88,95
+Charlie,72,68,80
+Diana,95,97,93
+"""
+with open("students.csv", "w") as f:
+    f.write(csv_data)
+
+with open("students.csv", "r") as f:
+    lines = f.readlines()
+
+for line in lines[1:]:               # skip header
+    line = line.strip()
+    if not line:                     # skip empty trailing line
+        continue
+    parts = line.split(",")
+    name = parts[0]
+    scores = [int(p) for p in parts[1:]]
+    avg = round(sum(scores) / len(scores), 2)
+    print(f"{name} — average: {avg}")
+# Alice — average: 85.0
+# Bob — average: 91.0
+# Charlie — average: 73.33
+# Diana — average: 95.0
+
+
+# ============================================================
+# SECTION 7 — ERROR HANDLING
+# ============================================================
+
+# --- Exercise 7.1 ⭐ — Safe Division ---
+def safe_divide(a, b):
+    try:
+        result = float(a) / float(b)
+        print(result)
+        return result
+    except ZeroDivisionError:
+        print("Oops — you can't divide by zero!")
+    except (ValueError, TypeError):
+        print("Please give me two numbers.")
+
+
+safe_divide(10, 3)
+safe_divide(10, 0)
+safe_divide("ten", 2)
+
+
+# --- Exercise 7.2 ⭐⭐ — Safe File Reader ---
+def safe_read(filename):
+    try:
+        with open(filename, "r") as f:
+            contents = f.read()
+        print(contents)
+        return contents
+    except FileNotFoundError:
+        print(f"File '{filename}' was not found.")
+    except PermissionError:
+        print(f"No permission to read '{filename}'.")
+    except Exception as e:
+        print(f"Something unexpected went wrong: {e}")
+    finally:
+        print("Operation complete.")
+
+
+safe_read("students.csv")
+safe_read("nonexistent_file.txt")
+
+
+# --- Exercise 7.3 ⭐⭐⭐ — Robust Number Processor ---
+mixed_data = ["42", "hello", "3.14", "", "100", "abc", "0", "7.5", None, "99"]
+valid_numbers = []
+skipped_count = 0
+for value in mixed_data:
+    try:
+        valid_numbers.append(float(value))
+    except (ValueError, TypeError):
+        skipped_count += 1
+print(f"Valid numbers: {valid_numbers}")
+print(f"Skipped: {skipped_count} bad values")
+# Valid numbers: [42.0, 3.14, 100.0, 0.0, 7.5, 99.0]
+# Skipped: 4 bad values
+
+
+# ============================================================
+# SECTION 8 — COMBINED CHALLENGES 🏆
+# ============================================================
+
+# --- Exercise 8.1 ⭐⭐⭐ — Student Report Generator ---
+students = [
+    {"name": "Alice", "scores": [85, 92, 78, 90]},
+    {"name": "Bob", "scores": [90, 88, 95, 87]},
+    {"name": "Charlie", "scores": [72, 68, 80, 65]},
+    {"name": "Diana", "scores": [95, 97, 93, 99]},
+]
+
+
+def letter_grade(avg):
+    if avg >= 90:
+        return "A"
+    elif avg >= 80:
+        return "B"
+    elif avg >= 70:
+        return "C"
+    elif avg >= 60:
+        return "D"
+    return "F"
+
+
+report_lines = ["=== STUDENT REPORT ==="]
+for student in students:
+    scores = student["scores"]
+    avg = sum(scores) / len(scores)
+    grade = letter_grade(avg)
+    report_lines.append(f"{student['name']:<10} | Avg: {avg:.2f} | Grade: {grade}")
+report_lines.append("=====================")
+
+report_text = "\n".join(report_lines)
+with open("student_report.txt", "w") as f:
+    f.write(report_text + "\n")
+print(report_text)
+
+
+# --- Exercise 8.2 ⭐⭐⭐ — Word Frequency Counter ---
+sample_text = """
+Python is a great programming language. Python is easy to learn.
+Many developers love Python because Python is versatile.
+Learning Python opens many doors. Python is fun and Python is powerful.
+"""
+with open("sample.txt", "w") as f:
+    f.write(sample_text)
+
+with open("sample.txt", "r") as f:
+    text = f.read()
+
+text = text.lower()
+for mark in ".,!?;:\"'()":
+    text = text.replace(mark, "")
+
+counts = {}
+for word in text.split():
+    counts[word] = counts.get(word, 0) + 1
+
+top_five = sorted(counts.items(), key=lambda x: x[1], reverse=True)[:5]
+for rank, (word, freq) in enumerate(top_five, start=1):
+    print(f"{rank}. {word} — {freq} times")
