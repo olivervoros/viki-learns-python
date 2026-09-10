@@ -1,26 +1,22 @@
-# --- Exercise 2.3 ⭐⭐⭐ — Password Validator ---
-# Check if a password meets ALL these rules:
-#   - At least 8 characters long
-#   - Contains at least one digit / integer
-#   - Contains at least one uppercase letter
-# Print which rules FAIL (not just "invalid").
+#shopping = ["milk", "bread"]     #<- list, can change
+#point    = (3, 5)                #<- tuple, sealed
 
-password =input("Adj meg egy jelszót: ")
-password_has_digit = False
-password_has_uppercase = False
-if len(password) < 8:
-    print("A jelszó rövidebb mint nyolc karakter")
-elif password :
-    for value in password:
-        if value.isdigit():
-            password_has_digit = True
-            break
-        elif value.isupper():
-            password_has_uppercase = True
-            break
-        else:
-            print("A jelszóban nincsen szám.")
-elif password_has_uppercase ==False:
-    print("A jelszóban nincs nagybetűs karakter")
+#tuple1 = ("apple", "banana", "cherry")
+#tuple2 = (1, 5, 7, 9, 3)
+#tuple3 = (True, False, False)
+#list1 = ["apple", "banana", "cherry"]
+#print(tuple1[1] = "plum")
+#list1[1] = "plum"
+#print(list1)
+#list1.append("pear")
+#print(list1)
+#tuple2.count()
+ev = 2024
+if ev % 400 == 0:
+    print("szökőév")
+elif ev % 100 == 0:
+    print("nem szökőév")
+elif ev % 4 == 0:
+    print("szökőév")
 else:
-    print("A jelszó megfelel")
+    print("nem szökőév")

@@ -88,9 +88,11 @@ else:
 # Calculate the sum of all numbers from 1 to 100 using a for loop.
 
 # TODO: use a for loop and range() to calculate the sum
-# total = ...
-
-# print(f"Sum of 1 to 100 = {total}")
+szamok = range(1,101)
+osszeg = 0
+for szam in szamok:
+    osszeg = osszeg + szam
+print(f"Sum of 1 to 100 = {osszeg}")
 # Expected output: Sum of 1 to 100 = 5050
 
 
@@ -98,9 +100,15 @@ else:
 # Count how many words in the list are longer than 5 characters.
 
 words = ["apple", "banana", "cherry", "fig", "dragonfruit", "kiwi", "strawberry"]
+long_word_count = 0
+for word in words:
+    if len(word) > 5:
+        long_word_count = long_word_count + 1
+    else:
+        continue
+print(f"Az ötnél hosszabb szavak száma : {long_word_count}")
+    
 
-# TODO: count words longer than 5 characters
-# long_word_count = ...
 
 # print(f"Words longer than 5 chars: {long_word_count}")
 # Expected output: Words longer than 5 chars: 4
@@ -109,7 +117,7 @@ words = ["apple", "banana", "cherry", "fig", "dragonfruit", "kiwi", "strawberry"
 # --- Exercise 3.3 ⭐⭐ — Multiplication Table ---
 # Print a multiplication table for a given number (1 through 10).
 
-number = 7
+number = input
 
 # TODO: print the multiplication table
 # Expected output:

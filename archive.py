@@ -102,3 +102,83 @@ if is_tuesday :
 else:
     pass
 print(f"A jegy ára {ar} EUR")
+
+# --- Exercise 2.3 ⭐⭐⭐ — Password Validator ---
+# Check if a password meets ALL these rules:
+#   - At least 8 characters long
+#   - Contains at least one digit / integer
+#   - Contains at least one uppercase letter
+# Print which rules FAIL (not just "invalid").
+
+password =input("Adj meg egy jelszót: ")
+password_has_digit = False
+password_has_uppercase = False
+if len(password) < 8:
+    print("A jelszó rövidebb mint nyolc karakter")
+elif password :
+    for value in password:
+        if value.isdigit():
+            password_has_digit = True
+            break
+        elif value.isupper():
+            password_has_uppercase = True
+            break
+        else:
+            print("A jelszóban nincsen szám.")
+elif password_has_uppercase ==False:
+    print("A jelszóban nincs nagybetűs karakter")
+else:
+    print("A jelszó megfelel")
+
+
+# --- Exercise 3.1 ⭐ — Sum Machine ---
+# Calculate the sum of all numbers from 1 to 100 using a for loop.
+
+# TODO: use a for loop and range() to calculate the sum
+szamok = range(1,101)
+osszeg = 0
+for szam in szamok:
+    osszeg = osszeg + szam
+print(f"Sum of 1 to 100 = {osszeg}")
+
+#--- Exercise 3.2 ⭐⭐ — Word Counter ---
+# Count how many words in the list are longer than 5 characters.
+
+words = ["apple", "banana", "cherry", "fig", "dragonfruit", "kiwi", "strawberry"]
+long_word_count = 0
+for word in words:
+    if len(word) > 5:
+        long_word_count = long_word_count + 1
+    else:
+        continue
+print(f"Az ötnél hosszabb szavak száma : {long_word_count}")
+
+# --- Exercise 3.3 ⭐⭐ — Multiplication Table ---
+# Print a multiplication table for a given number (1 through 10).
+try: 
+    number = int(input("Adjon meg egy számot 1 és 10 között: "))
+    if number < 1 and number > 10:
+        number = int(input("Nem 1 és 10 közötti számot adtál meg "))
+    else:
+        for value in range(1,11):
+            print(f"{value} szorozva {number} egyenlő : {value * number}")
+except ValueError:
+    number = int(input("Nem számot adtál meg.Adjon meg egy számot 1 és 10 között: "))
+
+
+ #The long way, for comparison:
+result = []
+for n in range(1,11):
+    result.append(n * n)
+print(result)
+
+uj_lista = [n * n for n in range(1,11)]
+
+result2 = ["bmw","toyota","mercedes","opel","suzuki"]
+new_list = []
+for res in result2:
+   new_list.append(res.upper())
+print(new_list)
+
+uj_lista = [n.upper() for n in result2]
+print(uj_lista)

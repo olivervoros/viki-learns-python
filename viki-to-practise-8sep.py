@@ -60,8 +60,10 @@ print(type("szia"), type(7), type(1.5), type(True))
 szoveg_a = "12"
 szoveg_b = "8"
 
+
+
 # TODO: ide írd a megoldást
-pass
+print(int("12") + int("8"))
 
 
 # --- 1.2 FELADAT ⭐ ------------------------------------------
@@ -72,7 +74,10 @@ darab = "3"
 egysegar = "1490"
 
 # TODO: ide írd a megoldást
-pass
+darab = int(darab)
+egysegar = int(egysegar)
+osszeg = darab * egysegar
+print(f"{darab} db x {egysegar} Ft = {osszeg} Ft")
 
 
 # --- 1.3 FELADAT ⭐⭐ -----------------------------------------
@@ -86,7 +91,9 @@ pass
 merteg = "7.8"
 
 # TODO: ide írd a megoldást
-pass
+print(float(merteg))
+print(int(float(merteg)))
+print(round(float(merteg)))
 
 
 # =============================================================
@@ -140,7 +147,12 @@ print(nevek)
 allatok = ["kutya", "macska", "nyúl"]
 
 # TODO: ide írd a megoldást
-pass
+allatok.append("teknős")
+print(allatok)
+allatok.insert(0, "papagáj")
+print(allatok)
+allatok.remove("macska")
+print(allatok)
 
 
 # --- 2.2 FELADAT ⭐ ------------------------------------------
@@ -153,7 +165,10 @@ pass
 pontok = [3, 8, 1, 9, 4, 7, 2]
 
 # TODO: ide írd a megoldást
-pass
+print(pontok[0])
+print(pontok[-1])
+print(pontok[:3])
+print(pontok[-2:])
 
 
 # --- 2.3 FELADAT ⭐⭐ -----------------------------------------
@@ -164,8 +179,8 @@ pass
 homersekletek = [12, 25, 8, 19, 4]
 
 # TODO: ide írd a megoldást
-pass
-
+print(sorted(homersekletek))
+print(homersekletek)
 
 # --- 2.4 FELADAT ⭐⭐ -----------------------------------------
 # Írd ki a lista átlagát 1 tizedesjegyre kerekítve.
@@ -174,7 +189,8 @@ pass
 jegyek = [4, 5, 3, 5, 2]
 
 # TODO: ide írd a megoldást
-pass
+atlag = sum(jegyek) / len(jegyek)
+print(round(atlag, 1))
 
 
 # =============================================================
@@ -229,7 +245,8 @@ print("Indulás!")
 #   "3 négyzete: 9"
 
 # TODO: ide írd a megoldást
-pass
+for szam in range(1, 11):
+    print(f"{szam} négyzete: {szam**2}")
 
 
 # --- 3.2 FELADAT ⭐ ------------------------------------------
@@ -241,7 +258,8 @@ pass
 osztaly = ["Anna", "Béla", "Cili", "Dóra"]
 
 # TODO: ide írd a megoldást
-pass
+for sorszam, diak in enumerate(osztaly, start=1):
+    print(f"{sorszam}. {diak}")
 
 
 # --- 3.3 FELADAT ⭐⭐ -----------------------------------------
@@ -252,7 +270,12 @@ pass
 napi_homerseklet = [12, 25, 31, 8, 19, 27, 33, 4]
 
 # TODO: ide írd a megoldást
-pass
+meleg_napok = []
+for i in napi_homerseklet:
+    if i > 20:
+        meleg_napok.append(homerseklet)
+print(meleg_napok)
+print(len(meleg_napok))
 
 
 # --- 3.4 FELADAT ⭐⭐ -----------------------------------------
@@ -262,7 +285,9 @@ pass
 szam = 100
 
 # TODO: ide írd a megoldást
-pass
+while szam > 1:
+    print(szam)
+    szam = szam / 2
 
 
 # =============================================================
@@ -315,8 +340,14 @@ print(ho < 0 or ho > 35)  # elég, ha az egyik igaz
 bmi = 26.4
 
 # TODO: ide írd a megoldást
-pass
-
+if bmi < 18.5:
+    print("sovány")
+elif bmi < 25:
+    print("normál")
+elif bmi < 30:
+    print("túlsúlyos")
+else:
+    print("elhízott")
 
 # --- 4.2 FELADAT ⭐⭐ -----------------------------------------
 # Mozijegy ára:
@@ -333,7 +364,17 @@ latogato_kor = 2
 nap = "szerda"
 
 # TODO: ide írd a megoldást
-pass
+if latogato_kor < 3:
+    ar = 0
+elif latogato_kor <= 15:
+    ar = 1200
+elif latogato_kor <= 64:
+    ar = 2500
+else:
+    ar = 1500
+if nap == "szerda" and ar > 0:
+    ar = ar - 500
+print(ar)
 
 
 # --- 4.3 FELADAT ⭐⭐ -----------------------------------------
@@ -345,7 +386,7 @@ pass
 ev = 2024
 
 # TODO: ide írd a megoldást
-pass
+
 
 
 # =============================================================
@@ -399,8 +440,11 @@ a = 10
 b = 0
 
 # TODO: ide írd a megoldást
-pass
-
+try:
+    eredmeny = a / b
+    print(eredmeny)
+except ZeroDivisionError:
+    print("Nullával nem lehet osztani.")
 
 # --- 5.2 FELADAT ⭐⭐ -----------------------------------------
 # Menj végig a listán, és minden elemet próbálj meg egész számmá
@@ -414,7 +458,15 @@ pass
 meresek = ["12", "8", "alma", "31", "", "19", "0", "25"]
 
 # TODO: ide írd a megoldást
-pass
+jok = []
+hibas = 0
+
+for meres in meresek:
+    try:
+        szam = int(meres)
+        jok.append(szam)
+    except ValueError:
+        print(meres)
 
 
 # --- 5.3 FELADAT ⭐⭐ -----------------------------------------
@@ -427,7 +479,7 @@ pass
 rovid_lista = [1, 2, 3]
 
 # TODO: ide írd a megoldást
-pass
+
 
 
 # =============================================================
@@ -473,7 +525,7 @@ mennyiseg = 3
 egyseg_ar = 1490
 
 # TODO: ide írd a megoldást
-pass
+print(f"{termek} x{mennyiseg} = {mennyiseg * egyseg_ar:,.2f} Ft")
 
 
 # --- 6.2 FELADAT ⭐⭐ -----------------------------------------
@@ -486,7 +538,8 @@ pass
 arlista = [("kávé", 1490), ("sajttorta", 890), ("ásványvíz", 350)]
 
 # TODO: ide írd a megoldást
-pass
+for termek, ar in arlista:
+    print(f"{termek:<15}{ar:>8,} Ft")
 
 
 # --- 6.3 FELADAT ⭐⭐ -----------------------------------------
@@ -557,7 +610,9 @@ print(also, felso)
 
 # TODO: ide írd a megoldást
 def terulet(szelesseg, magassag=1):
-    pass
+    return szelesseg * magassag
+print(terulet(3, 4))
+print(terulet(5))
 
 
 # --- 7.2 FELADAT ⭐⭐ -----------------------------------------
@@ -568,7 +623,12 @@ def terulet(szelesseg, magassag=1):
 
 # TODO: ide írd a megoldást
 def statisztika(szamok):
-    pass
+    also = min(szamok)
+    felso = max(szamok)
+    atlag = round(sum(szamok) / len(szamok), 1)
+    return also, felso, atlag
+also, felso, atlag = statisztika([4, 9, 2, 7, 5])
+print(f"Legkisebb: {also}, Legnagyobb: {felso}, Átlag: {atlag}")
 
 
 # --- 7.3 FELADAT ⭐⭐ -----------------------------------------
@@ -642,8 +702,12 @@ with open("gyakorlas_adatok.txt", "r", encoding="utf-8") as f:
 nevek_listaja = ["Anna", "Béla", "Cili"]
 
 # TODO: ide írd a megoldást
-pass
-
+with open("nevek.txt", "w", encoding="utf-8") as f:
+    for nev in nevek_listaja:
+        f.write(nev + "\n")
+with open("nevek.txt", "r", encoding="utf-8") as f:
+    for sor in f:
+        print(sor.strip())
 
 # --- 8.2 FELADAT ⭐ ------------------------------------------
 # Olvasd be a "gyakorlas_adatok.txt" sorait EGY LISTÁBA,
@@ -651,7 +715,13 @@ pass
 #   ->  ['alma', 'körte', 'szilva', 'barack']   4
 
 # TODO: ide írd a megoldást
-pass
+nevek = []
+with open("gyakorlas_adatok.txt", "r", encoding="utf-8") as f:
+    for sor in f:
+        nevek.append(sor.strip())
+
+print(nevek)
+print(len(nevek))
 
 
 # --- 8.3 FELADAT ⭐⭐ -----------------------------------------
