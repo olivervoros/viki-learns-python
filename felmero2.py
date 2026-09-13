@@ -101,8 +101,9 @@ def duplaz_regi(x):
 
 print("\n--- 13. feladat ---")
 # TODO: ide írd a megoldást
-pass
-
+duplaz = lambda x: x * 2
+print(duplaz(7))
+print(list(map(duplaz, [3, 5, 8])))
 # print(duplaz(7))                       # várt: 14
 # print(list(map(duplaz, [3, 5, 8])))    # várt: [6, 10, 16]
 
@@ -156,15 +157,18 @@ print("\n--- 15. feladat ---")
 
 def alkalmaz(fv, lista):
     # TODO: ide írd a megoldást
-    pass
+    eredmeny = []
 
+    for elem in lista:
+        eredmeny.append(fv(elem))
 
+    return eredmeny
 print(alkalmaz(abs, [-3, 2, -1]))  # várt: [3, 2, 1]
 print(alkalmaz(str, [1, 2, 3]))  # várt: ['1', '2', '3']
 print(alkalmaz(lambda x: x**2, [1, 2, 3]))  # várt: [1, 4, 9]
 
 # TODO: ide írd a c) választ
-
+alkalmaz(abs, [-3, 2, -1])
 
 # =========================================================================
 # F) HIBAKEZELÉS                                                    6 pont
@@ -221,6 +225,13 @@ print("A program megy tovább.")
 #    és a program egyenesen az except-hez ugrik.
 
 # TODO: ide írd a tippjeidet
+# a) A, C, D
+# Azért, mert az int("12a") ValueError hibát okoz,
+# ezért a "B" már nem íródik ki, hanem az except következik.
+
+# b)
+# "kor: " + 25 : TypeError
+# [1, 2, 3][5] :IndexError
 
 
 # -------------------------------------------------------------------------
@@ -241,9 +252,14 @@ print("\n--- 17. feladat ---")
 
 def biztonsagos_osztas(a, b):
     # TODO: ide írd a megoldást
-    pass
-
-
+try:
+        return a / b
+except ZeroDivisionError:
+        print("Nullával nem lehet osztani.")
+        return None
+except TypeError:
+        print("Csak számokkal tudok osztani.")
+        return None
 print("(10, 4)  ->", biztonsagos_osztas(10, 4))  # várt: 2.5
 print("(1, 0)   ->", biztonsagos_osztas(1, 0))  # várt: üzenet, aztán None
 print("(5, '2') ->", biztonsagos_osztas(5, "2"))  # várt: üzenet, aztán None
@@ -394,90 +410,24 @@ print("A 'kitakarított' lista:", jegyek, "  ...tényleg nincs benne egyes?")
 eredeti = [5, 1, 1, 4, 1, 5, 2, 1]
 
 # TODO: ide írd az a) választ
-
+bevasarlas.append("sajt")
 # TODO: ide írd a b) és c) megoldását
-pass
+bevasarlas.insert(0, "kávé")
+bevasarlas.remove("kenyér")
+kivettem = bevasarlas.pop()
+print("Kivettem:", kivettem)
+print(bevasarlas, len(bevasarlas))
 
 
-# =========================================================================
-# Z) ZÁRÓ FELADAT - MINDEN EGYÜTT                                   8 pont
-# =========================================================================
-#
-# 22. ⭐⭐⭐  A kávézó napi kasszája                                 (8 pont)
-# -------------------------------------------------------------------------
-# A pénztárgépből ezek az árak jöttek - szövegként, és nem mind jó:
+# b) kávé a legelejére
+bevasarlas.insert(0, "kávé")
 
-rendelesek = ["1290", "450", "banán", "890", "", "1290", "-300", "2100"]
+# c) kenyér törlése
+bevasarlas.remove("kenyér")
 
-#  1. ar_ellenoriz(szoveg)                          (típus, függvény, hiba)
-#     - int-et ad vissza
-#     - ha nem szám:     ValueError, üzenet: nem szám
-#     - ha negatív:      ValueError, üzenet: negatív ár
-#  2. kategoria(ar)                                 (elágazás)
-#     - 500 alatt "olcsó", 1500 alatt "közepes", egyébként "drága"
-#  3. Menj végig a rendeléseken. A jó árakat gyűjtsd egy listába, a
-#     hibásakat számold, és mindegyikről írj figyelmeztetést.
-#                                                   (ciklus, lista, hiba)
-#  4. Írasd ki a jó árakat csökkenő sorrendben, és a kategóriáikat
-#     map-pel.                                      (függvény manipuláció)
-#  5. Összesítő: hány jó és hány hibás, az összeg, az átlag 1 tizedesre
-#     és a legdrágább. Ha EGYETLEN jó rendelés sincs, írd ki:
-#     "Nincs érvényes rendelés." - és a program ne omoljon össze.
-#
-# Várt kimenet:
-#     Kihagyva: 'banán' - nem szám
-#     Kihagyva: '' - nem szám
-#     Kihagyva: '-300' - negatív ár
-#     Rendezve: [2100, 1290, 1290, 890, 450]
-#     Kategóriák: ['közepes', 'olcsó', 'közepes', 'közepes', 'drága']
-#     5 jó, 3 hibás rendelés
-#     Összesen 6020 Ft, átlag 1204.0 Ft, legdrágább 2100 Ft
-#
-# 💡 Tipp: Az ar_ellenoriz-ben tedd az int()-et egy try-ba, és az
-#    except ágban dobj új hibát a saját üzeneteddel:
-#        raise ValueError("nem szám")
-#    Az 5. ponthoz:  if jo:  - az üres lista hamisnak számít.
+# d) utolsó elem kivétele
+kivettem = bevasarlas.pop()
+print("Kivettem:", kivettem)
 
-print("\n--- 22. feladat ---")
-
-
-def ar_ellenoriz(szoveg):
-    # TODO: ide írd a megoldást
-    pass
-
-
-def kategoria(ar):
-    # TODO: ide írd a megoldást
-    pass
-
-
-print("kategoria(450)  ->", kategoria(450))  # várt: olcsó
-print("kategoria(1290) ->", kategoria(1290))  # várt: közepes
-print("kategoria(2100) ->", kategoria(2100))  # várt: drága
-
-# TODO: ide írd a 3-5. lépést
-pass
-
-
-# =========================================================================
-# AMIT MA GYAKOROLTUNK
-# =========================================================================
-#
-#  • A függvény is érték: fv a szerszám, fv() a használata. lambda,
-#    sorted(key=...), map, filter.
-#  • try / except = háló a trapéz alatt. Nevezd meg a hibát, és
-#    raise-zel te is jelezhetsz.
-#  • Ami a listát helyben módosítja, az None-t ad vissza. Ciklus
-#    közben ne törölj a listából - építs egy újat.
-#  • A záró feladat azt mutatta meg, hogy a hét téma együtt egy igazi
-#    kis programot ad: piszkos adat be, tiszta összesítő ki.
-#
-# PONTOZÁS - légy magadhoz őszinte
-# ---------------------------------
-#    teljes pont   működik, és nem néztél tippet
-#    a pont fele   működik, de kellett hozzá a 💡 tipp
-#    0 pont        nem sikerült (még)
-#
-# A végösszegnél fontosabb, HOL vesztettél pontot. Amelyik betűnél a
-# legtöbbet, az a következő gyakorlás témája.
-# =========================================================================
+# e) lista és hossza
+print(bevasarlas, len(bevasarlas))

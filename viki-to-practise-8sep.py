@@ -179,8 +179,8 @@ print(pontok[-2:])
 homersekletek = [12, 25, 8, 19, 4]
 
 # TODO: ide írd a megoldást
-print(sorted(homersekletek))
-print(homersekletek)
+
+
 
 # --- 2.4 FELADAT ⭐⭐ -----------------------------------------
 # Írd ki a lista átlagát 1 tizedesjegyre kerekítve.
@@ -386,7 +386,12 @@ print(ar)
 ev = 2024
 
 # TODO: ide írd a megoldást
-
+if ev % 4 == 0 and ev % 100 > 0:
+    print("Szökőév")
+elif ev % 400 ==0:
+    print("Szökőév")
+else:
+    print("nem szökőév")
 
 
 # =============================================================
@@ -438,6 +443,7 @@ print("...és tényleg megy tovább.")
 
 a = 10
 b = 0
+eredmeny = []
 
 # TODO: ide írd a megoldást
 try:

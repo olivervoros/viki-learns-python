@@ -74,12 +74,12 @@ print(str(42) + "!", "<- számból szöveg lett")
 # NE futtasd le rögtön! Minden sor mögé írd oda a tippedet, utána vedd
 # ki a # jelet a sorok elejéről, és futtasd le.
 #
-# print("7" + "3")                       # tipp:
-# print(int("7") + int("3"))             # tipp:
-# print("ha" * 3)                        # tipp:
-# print(int(3.99))                       # tipp:
-# print(float("2") + 1)                  # tipp:
-# print(bool(""), bool("0"), bool(0))    # tipp:
+print("7" + "3")                       # tipp: 73
+print(int("7") + int("3"))             # tipp: 10
+print("ha" * 3)                        # tipp: hahaha
+print(int(3.99))                       # tipp: 3
+print(float("2") + 1)                  # tipp: 3.0
+print(bool(""), bool("0"), bool(0))    # tipp: False True False
 #
 # Legalább két sor szinte mindenkit meglep. Melyik kettő, és miért?
 #
@@ -87,8 +87,8 @@ print(str(42) + "!", "<- számból szöveg lett")
 #    nézi, mi van beleírva.
 
 # TODO: ide írd a megoldást (melyik két sor lepett meg, és miért)
-
-
+#print(int(3.99)) → 3, mert az int() nem kerekít, csak levágja a tizedesrészt.
+#Azért meglepő ez a sor, mert a bool() nem azt nézi, hogy mi van a szövegben, hanem azt, hogy üres-e. A "" üres, ezért False, viszont a "0" nem üres, ezért True. A 0 viszont számként False érték.
 # -------------------------------------------------------------------------
 # 2. ⭐⭐  Ami az input()-ból jön, az szöveg                        (2 pont)
 # -------------------------------------------------------------------------
@@ -108,8 +108,10 @@ magassag_szoveg = "1.75"  # magassag_szoveg = input("Milyen magas vagy (m)? ")
 
 print("\n--- 2. feladat ---")
 # TODO: ide írd a megoldást
-pass
+kor = int(kor_szoveg)
+magassag = float(magassag_szoveg)
 
+print(f"Jövőre {kor + 1} éves leszel, és {round(magassag * 100)} cm magas vagy.")
 
 # -------------------------------------------------------------------------
 # 3. ⭐⭐⭐  A kávézó kasszája                                      (3 pont)
@@ -138,7 +140,26 @@ kedvezmeny = "0.1"  # 10% - ez is szöveg
 
 print("\n--- 3. feladat ---")
 # TODO: ide írd a megoldást
-pass
+
+print(type(termek))
+print(type(ar))
+print(type(darab))
+print(type(kedvezmeny))
+
+
+ar = int(ar)
+kedvezmeny = float(kedvezmeny)
+
+fizetendo = ar * darab * (1 - kedvezmeny)
+
+print(f"{darab} db {termek}: {round(fizetendo)} Ft")
+
+
+# ar * darab eredménye: "129012901290", mert az ar szöveg,
+# a darab pedig egész szám, ezért a szöveget háromszor megismétli.
+#
+# ar * kedvezmeny viszont hibát ad, mert szöveget nem lehet
+# tizedes számmal megszorozni.
 
 
 # =========================================================================
@@ -190,7 +211,10 @@ print("\n--- 4. feladat ---")
 
 def negyzet(szam):
     # TODO: ide írd a megoldást
-    pass
+    return szam ** 2
+
+
+
 
 
 print("negyzet(4)  ->", negyzet(4))  # várt: 16
@@ -213,15 +237,15 @@ print("\n--- 5. feladat ---")
 
 def teglalap(a, b):
     # TODO: ide írd a megoldást
-    pass
+    terulet = a * b
+    kerulet = 2 * (a + b)
+    return terulet, kerulet
 
-
+terulet, kerulet = teglalap(3, 4)
 print("teglalap(3, 4) ->", teglalap(3, 4))  # várt: (12, 14)
 
 # TODO: ide írd a kibontást és a kiírást
-pass
-
-
+print("Terület:", terulet, "kerület:", kerulet)
 # -------------------------------------------------------------------------
 # 6. ⭐⭐⭐  Hová tűnt a bruttó ár?                                 (3 pont)
 # -------------------------------------------------------------------------
@@ -304,7 +328,11 @@ print("\n--- 7. feladat ---")
 
 def paros_vagy_paratlan(n):
     # TODO: ide írd a megoldást
-    pass
+    if n % 2 == 0:
+        return "páros"
+    else:
+        return "páratlan"
+
 
 
 print(4, "->", paros_vagy_paratlan(4))  # várt: páros
@@ -332,7 +360,12 @@ print("\n--- 8. feladat ---")
 
 def szallitasi_dij(osszeg, torzsvasarlo=False):
     # TODO: ide írd a megoldást
-    pass
+    if torzsvasarlo or osszeg >= 20000:
+        return 0
+    elif osszeg >= 10000:
+        return 990
+    else:
+        return 1990
 
 
 print(szallitasi_dij(25000))  # várt: 0
@@ -379,7 +412,18 @@ print("jegy(95) ->", jegy(95), "  ...pedig ötösnek kellene lennie")
 
 def jegy_javitott(pont):
     # TODO: ide írd a megoldást
-    pass
+    if pont < 0 or pont > 100:
+        return "érvénytelen"
+    elif pont >= 85:
+        return 5
+    elif pont >= 75:
+        return 4
+    elif pont >= 65:
+        return 3
+    elif pont >= 50:
+        return 2
+    else:
+        return 1
 
 
 for p in [95, 85, 84, 70, 50, 49, 101, -5]:
@@ -430,8 +474,14 @@ print("Start!")
 
 print("\n--- 10. feladat ---")
 # TODO: ide írd a megoldást
-pass
 
+for i in range(1, 11):
+    print("7 x", i, "=", 7 * i)
+osszeg = 0
+for i in range(1, 101):
+    if i % 2 == 0:
+        osszeg += i
+print("A páros számok összege:", osszeg)
 
 # -------------------------------------------------------------------------
 # 11. ⭐⭐  Mikor lesz meg a pénz?                                  (2 pont)
@@ -455,7 +505,12 @@ cel = 150000  # Ft
 
 print("\n--- 11. feladat ---")
 # TODO: ide írd a megoldást
-pass
+ev = 0
+
+while egyenleg < cel:
+    egyenleg = egyenleg * (1 + kamat)
+    ev += 1
+print(ev, "év után:", round(egyenleg), "Ft")
 
 
 # -------------------------------------------------------------------------
